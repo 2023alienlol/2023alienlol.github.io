@@ -1,22 +1,48 @@
-<!DOCTYPE html>
 <html>
   <head>
     <title>Eilyr Yaivle official website | EILYR YAIVLE</title>
-    <style>
-      body {
-        background-color: black;
-      }
+    ...
+  </head>
+  ...
+</html>
 
+<html>
+  <head>
+    <style>
       #title {
         position: absolute;
-        font-size: 40px;
+        font-size: 36px;
         font-weight: bold;
         color: white;
       }
     </style>
   </head>
-  <body>
+  <body style="background-color: black;">
     <div id="title">EILYR YAIVLE</div>
-    <script src="script.js"></script>
   </body>
+  <script>
+    const title = document.getElementById("title");
+    let x = Math.floor(Math.random() * window.innerWidth);
+    let y = Math.floor(Math.random() * window.innerHeight);
+    let dx = 5;
+    let dy = 5;
+
+    function moveTitle() {
+      x += dx;
+      y += dy;
+
+      if (x + title.offsetWidth >= window.innerWidth || x <= 0) {
+        dx = -dx;
+      }
+
+      if (y + title.offsetHeight >= window.innerHeight || y <= 0) {
+        dy = -dy;
+      }
+
+      title.style.left = x + "px";
+      title.style.top = y + "px";
+    }
+
+    setInterval(moveTitle, 50);
+  </script>
 </html>
