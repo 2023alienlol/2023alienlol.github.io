@@ -34,8 +34,13 @@
       const bodyHeight = body.offsetHeight;
       const imageWidth = image.offsetWidth;
       const imageHeight = image.offsetHeight;
-      let xSpeed = Math.random() * 10 - 5;
-      let ySpeed = Math.sqrt(Math.pow(10, 2) - Math.pow(xSpeed, 2)) * (Math.random() < 0.5 ? -1 : 1);
+
+      function getRandomSpeed() {
+        return Math.random() * 10 - 5;
+      }
+
+      let xSpeed = getRandomSpeed();
+      let ySpeed = getRandomSpeed();
 
       function moveImage() {
         let x = image.offsetLeft + xSpeed;
