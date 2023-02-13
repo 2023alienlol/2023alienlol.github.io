@@ -9,40 +9,41 @@
 <html>
   <head>
     <style>
-      #title {
+      body {
+        background-color: black;
+      }
+      
+      #image {
         position: absolute;
-        font-size: 36px;
-        font-weight: bold;
-        color: white;
+        width: 200px;
+        height: 200px;
       }
     </style>
   </head>
-  <body style="background-color: black;">
-    <div id="title">EILYR YAIVLE</div>
+  <body>
+    <img id="image" src="https://discord.com/channels/@me/1058790028530155591/1074704367778803753">
+    
+    <script>
+      const image = document.getElementById("image");
+      let x = Math.floor(Math.random() * window.innerWidth);
+      let y = Math.floor(Math.random() * window.innerHeight);
+      let dx = 5;
+      let dy = 5;
+      
+      setInterval(function() {
+        image.style.left = x + "px";
+        image.style.top = y + "px";
+        
+        x += dx;
+        y += dy;
+        
+        if (x + image.offsetWidth > window.innerWidth || x < 0) {
+          dx = -dx;
+        }
+        if (y + image.offsetHeight > window.innerHeight || y < 0) {
+          dy = -dy;
+        }
+      }, 50);
+    </script>
   </body>
-  <script>
-    const title = document.getElementById("title");
-    let x = Math.floor(Math.random() * window.innerWidth);
-    let y = Math.floor(Math.random() * window.innerHeight);
-    let dx = 5;
-    let dy = 5;
-
-    function moveTitle() {
-      x += dx;
-      y += dy;
-
-      if (x + title.offsetWidth >= window.innerWidth || x <= 0) {
-        dx = -dx;
-      }
-
-      if (y + title.offsetHeight >= window.innerHeight || y <= 0) {
-        dy = -dy;
-      }
-
-      title.style.left = x + "px";
-      title.style.top = y + "px";
-    }
-
-    setInterval(moveTitle, 50);
-  </script>
 </html>
