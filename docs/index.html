@@ -3,11 +3,39 @@
   <head>
     <title>Eilyr Yaivle official website | EILYR YAIVLE</title>
     <style>
+      /* Add the text */
+      .text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 36px;
+        font-weight: bold;
+        color: white;
+        animation: move 10s linear infinite;
+      }
+
+      /* Add the animation */
+      @keyframes move {
+        from {
+          transform: translate(-50%, -50%)
+        }
+        to {
+          transform: translate(-50%, -50%) translate(100%, 0);
+        }
+      }
+
+      /* Add some styling to center the text and set the background color */
       body {
-         background-color: #000000;
+        background-color: #000000;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     </style>
   </head>
   <body>
+    <div class="text">EILYR YAIVLE</div>
   </body>
 </html>
