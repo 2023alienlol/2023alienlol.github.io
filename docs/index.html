@@ -6,47 +6,103 @@
   ...
 </html>
 
+<!DOCTYPE html>
 <html>
   <head>
     <style>
       body {
         background-color: black;
+        margin: 0;
       }
-      
-      #image {
+      .image {
         position: absolute;
-        width: 330px;
-        height: 20.125px;
+        top: calc(50% - 200px);
+        left: calc(50% - 300px);
+        width: 576px;
+        height: 64.2px;
+        background-image: url(https://media.discordapp.net/attachments/1058790028530155591/1074704367564902420/s8eilyr.png?width=2880&height=321);
+        background-size: cover;
       }
     </style>
   </head>
   <body>
-    <img id="image" src="https://media.discordapp.net/attachments/1058790028530155591/1074704367564902420/s8eilyr.png?width=2880&height=321">
-    
+    <div class="image"></div>
     <script>
-      const image = document.getElementById("image");
-      let x = Math.floor(Math.random() * window.innerWidth);
-      let y = Math.floor(Math.random() * window.innerHeight);
-      let dx = 5;
-      let dy = 5;
-      
-      setInterval(function() {
+      const image = document.querySelector(".image");
+      const body = document.querySelector("body");
+      const bodyWidth = body.offsetWidth;
+      const bodyHeight = body.offsetHeight;
+      const imageWidth = image.offsetWidth;
+      const imageHeight = image.offsetHeight;
+      let xSpeed = 5;
+      let ySpeed = 5;
+
+      function moveImage() {
+        let x = image.offsetLeft + xSpeed;
+        let y = image.offsetTop + ySpeed;
+
+        if (x + imageWidth > bodyWidth || x < 0) {
+          xSpeed = -xSpeed;
+        }
+        if (y + imageHeight > bodyHeight || y < 0) {
+          ySpeed = -ySpeed;
+        }
+
         image.style.left = x + "px";
         image.style.top = y + "px";
-        
-        x += dx;
-        y += dy;
-        
-        if (x + image.offsetWidth > window.innerWidth || x < 0) {
-          dx = -dx;
-        }
-        if (y + image.offsetHeight > window.innerHeight || y < 0) {
-          dy = -dy;
-        }
-      }, 50);
+      }
+
+      setInterval(moveImage, 50);
     </script>
   </body>
 </html>
-window.addEventListener("resize", function() {
-  window.resizeTo(3840,2160);
-});
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        background-color: black;
+        margin: 0;
+      }
+      .image {
+        position: absolute;
+        top: calc(50% - 200px);
+        left: calc(50% - 300px);
+        width: 400px;
+        height: 400px;
+        background-image: url(your-image-url.jpg);
+        background-size: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="image"></div>
+    <script>
+      const image = document.querySelector(".image");
+      const body = document.querySelector("body");
+      const bodyWidth = body.offsetWidth;
+      const bodyHeight = body.offsetHeight;
+      const imageWidth = image.offsetWidth;
+      const imageHeight = image.offsetHeight;
+      let xSpeed = 5;
+      let ySpeed = 5;
+
+      function moveImage() {
+        let x = image.offsetLeft + xSpeed;
+        let y = image.offsetTop + ySpeed;
+
+        if (x + imageWidth > bodyWidth || x < 0) {
+          xSpeed = -xSpeed;
+        }
+        if (y + imageHeight > bodyHeight || y < 0) {
+          ySpeed = -ySpeed;
+        }
+
+        image.style.left = x + "px";
+        image.style.top = y + "px";
+      }
+
+      setInterval(moveImage, 50);
+    </script>
+  </body>
+</html>
