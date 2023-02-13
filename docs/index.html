@@ -16,8 +16,8 @@
       }
       .image {
         position: absolute;
-        top: calc(50% - 288px);
-        left: calc(50% - 32.1px);
+        top: calc(50% - 576px / 2);
+        left: calc(50% - 64.2px / 2);
         width: 288px;
         height: 32.1px;
         background-image: url(https://media.discordapp.net/attachments/1058790028530155591/1074704367564902420/s8eilyr.png?width=2880&height=321);
@@ -34,8 +34,8 @@
       const bodyHeight = body.offsetHeight;
       const imageWidth = image.offsetWidth;
       const imageHeight = image.offsetHeight;
-      let xSpeed = 5;
-      let ySpeed = 5;
+      let xSpeed = Math.random() * 10 - 5;
+      let ySpeed = Math.sqrt(Math.pow(10, 2) - Math.pow(xSpeed, 2)) * (Math.random() < 0.5 ? -1 : 1);
 
       function moveImage() {
         let x = image.offsetLeft + xSpeed;
@@ -50,9 +50,6 @@
 
         image.style.left = x + "px";
         image.style.top = y + "px";
-
-        xSpeed = Math.floor(Math.random() * 10 + 1) - 5;
-        ySpeed = Math.floor(Math.random() * 10 + 1) - 5;
       }
 
       setInterval(moveImage, 50);
