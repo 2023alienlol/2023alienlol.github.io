@@ -12,44 +12,50 @@
   </head>
   <body>
     
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html>
   <head>
     <style>
       body {
         background-color: black;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
       }
-      #dvd-screen {
+      #dvd-logo {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 300px;
-        height: 200px;
-        border: 3px solid white;
-        background-color: black;
-        animation: dvd-animation 2s infinite;
+        width: 100px;
+        height: 60px;
+        background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/0c/DVD_video_logo.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        animation: dvd-animation 2s linear infinite;
       }
       @keyframes dvd-animation {
         0% {
-          transform: translate(-50%, -50%) rotate(0deg);
+          top: 0;
+          left: 0;
         }
         25% {
-          transform: translate(-50%, -50%) rotate(90deg);
+          top: 0;
+          left: 50%;
         }
         50% {
-          transform: translate(-50%, -50%) rotate(180deg);
+          top: 50%;
+          left: 50%;
         }
         75% {
-          transform: translate(-50%, -50%) rotate(270deg);
+          top: 50%;
+          left: 0;
         }
         100% {
-          transform: translate(-50%, -50%) rotate(360deg);
+          top: 0;
+          left: 0;
         }
       }
     </style>
   </head>
   <body>
-    <div id="dvd-screen"></div>
+    <div id="dvd-logo"></div>
   </body>
 </html>
