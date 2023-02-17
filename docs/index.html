@@ -11,3 +11,89 @@
     </style>
   </head>
   <body>
+
+    <!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #image {
+        width: 200px;
+        height: auto;
+        transition: transform 0.2s ease-out;
+      }
+      #container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <img id="image" src="https://media.discordapp.net/attachments/1058790028530155591/1074704367564902420/s8eilyr.png?width=2880&height=321" alt="example image" draggable="false">
+    </div>
+    <script>
+      let isDragging = false;
+      let currentX;
+      let currentY;
+      let initialX;
+      let initialY;
+      let xOffset = 0;
+      let yOffset = 0;
+      let scale = 1;
+
+      const image = document.querySelector('#image');
+
+      image.addEventListener('mousedown', dragStart);
+      image.addEventListener('mouseup', dragEnd);
+      image.addEventListener('mousemove', drag);
+      image.addEventListener('wheel', zoom);
+
+      function dragStart(e) {
+        initialX = e.clientX - xOffset;
+        initialY = e.clientY - yOffset;
+
+        if (e.target === image) {
+          isDragging = true;
+        }
+      }
+
+      function dragEnd(e) {
+        isDragging = false;
+
+        image.style.transition = "transform 0.2s ease-out";
+        image.style.transform = `scale(${scale})`;
+
+        // Reset variables
+        xOffset = 0;
+        yOffset = 0;
+        scale = 1;
+      }
+
+      function drag(e) {
+        if (isDragging) {
+          currentX = e.clientX - initialX;
+          currentY = e.clientY - initialY;
+
+          xOffset = currentX;
+          yOffset = currentY;
+
+          image.style.transform = `scale(${scale}) translate3d(${currentX}px, ${currentY}px, 0)`;
+        }
+      }
+
+      function zoom(e) {
+        e.preventDefault();
+        scale += e.deltaY * -0.01;
+
+        // Limit zoom
+        scale = Math.min(Math.max(.125, scale), 4);
+
+        // Apply zoom
+        image.style.transform = `scale(${scale}) translate3d(${xOffset}px, ${yOffset}px, 0)`;
+      }
+    </script>
+  </body>
+</html>
