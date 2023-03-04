@@ -51,3 +51,28 @@
     </script>
   </body>
 </html>
+    
+    .led-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background-color: black;
+}
+
+.led-message {
+  font-size: 32px;
+  color: #00bfff; /* 파란색 */
+  font-weight: bold;
+  white-space: nowrap;
+  animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
