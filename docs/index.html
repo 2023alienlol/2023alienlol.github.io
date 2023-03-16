@@ -3,6 +3,7 @@
   <head>
     <title>Eilyr Yaivle official website | EILYR YAIVLE</title>
     <link rel="icon" type="image/png" sizes="32x32" href="https://media.discordapp.net/attachments/1058790028530155591/1075923221074944040/P_W_EIL_YR_YVE.png?width=1446&height=1400">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <style>
       body {
         background-color: white;
@@ -14,12 +15,12 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
-        overflow: hidden; /* 스크롤 없애기 */
       }
       /* 이미지 크기를 조정하는 스타일 */
       .image-container img {
         max-width: 100%;
-        height: auto;
+        max-height: 100%;
+        object-fit: contain;
       }
     </style>
   </head>
