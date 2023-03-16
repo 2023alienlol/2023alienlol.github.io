@@ -8,14 +8,7 @@
         background-color: white;
         margin: 0;
       }
-    </style>
-  </head>
-  <body>
 
-  <!DOCTYPE html>
-<html>
-  <head>
-    <style>
       /* 중앙 정렬 */
       body {
         display: flex;
@@ -26,8 +19,16 @@
 
       /* 이미지 크기 조정 */
       img {
-        max-width: 100;
+        max-width: 100%;
         max-height: 100%;
+      }
+
+      /* 모바일에서 중앙 정렬 */
+      @media (max-width: 768px) {
+        body {
+          display: block;
+          text-align: center;
+        }
       }
     </style>
   </head>
