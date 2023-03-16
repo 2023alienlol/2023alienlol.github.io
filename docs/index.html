@@ -14,19 +14,23 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
-        overflow: hidden; /* 스크롤 막기 */
       }
       /* 이미지 크기를 조정하는 스타일 */
       .image-container img {
         max-width: 100%;
         height: auto;
-        object-fit: contain; /* 이미지 비율 유지 */
+      }
+      /* 핸드폰 화면 크기에 따라 이미지 크기를 조정하는 스타일 */
+      @media only screen and (max-width: 600px) {
+        .image-container img {
+          max-width: 100%;
+        }
       }
     </style>
   </head>
   <body>
     <div class="image-container">
-      <img src="https://media.discordapp.net/attachments/797498769985372202/1086041260034359296/sdfsdfsg.png?width=2490&height=1401" alt="사진" style="width:100%; height:auto;">
+      <img src="https://media.discordapp.net/attachments/797498769985372202/1086041260034359296/sdfsdfsg.png" alt="사진">
     </div>
   </body>
 </html>
